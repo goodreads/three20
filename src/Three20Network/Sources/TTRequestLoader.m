@@ -42,52 +42,6 @@
 @end
 static const NSInteger kLoadMaxRetries = 2;
 
-@interface TTRequestLoader ()
-- (void)resetCancelLoadingState;
-- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSHTTPURLResponse*)response;
-- (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data;
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
-@end
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-@interface AlertDelegate : NSObject<UIAlertViewDelegate>
-{
-  TTRequestLoader *mLoader;
-}
--(id)initWithLoader:(TTRequestLoader*)loader;
-@end
-
-@implementation AlertDelegate
-
--(id)initWithLoader:(TTRequestLoader*)loader;
-{
-  if ((self = [super init])) {
-    mLoader = [loader retain];
-  }
-  return self;
-}
-
-- (void)alertView:(UIAlertView*)alert clickedButtonAtIndex:(NSInteger)idx
-{
-  if (idx != 0) {
-    [mLoader cancel];
-  }
-  [alert release];
-  [mLoader resetCancelLoadingState];
-  [self autorelease];
-}
-
--(void)dealloc
-{
-  [mLoader release];
-  [super dealloc];
-}
-@end
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -205,7 +159,6 @@ static const NSInteger kLoadMaxRetries = 2;
 
 -(void)showMaxContentAlert
 {
-  AlertDelegate *deleg = [[AlertDelegate alloc] initWithLoader:self];
   NSString *t, *m, *b0, *b1;
   NSBundle *bndl = [NSBundle mainBundle];
   
@@ -214,18 +167,30 @@ static const NSInteger kLoadMaxRetries = 2;
   t = [bndl localizedStringForKey:@"Warning" value:@"Warning" table:nil];
   b0= [bndl localizedStringForKey:@"Continue" value:@"Continue" table:nil];
   b1= [bndl localizedStringForKey:@"Abort Download" value:@"Abort Download" table:nil];
-  
-  _cancelAlert = [[UIAlertView alloc] initWithTitle:t
-                                            message:m
-                                           delegate:deleg
-                                  cancelButtonTitle:b0
-                                  otherButtonTitles:b1, nil];
-  [_cancelAlert show];
+
+  if (_cancelAlert == nil) {
+    _cancelAlert = [[UIAlertView alloc] initWithTitle:t
+                                              message:m
+                                             delegate:self
+                                    cancelButtonTitle:b0
+                                    otherButtonTitles:b1, nil];
+    [_cancelAlert show];
+  }
 }
 
 -(void)resetCancelLoadingState
 {
+  [_cancelAlert release];
   _cancelAlert = nil;
+}
+
+- (void)alertView:(UIAlertView*)alert clickedButtonAtIndex:(NSInteger)idx
+{
+  [self resetCancelLoadingState];
+
+  if (idx != 0) {
+    [self cancel];
+  }
 }
 
 

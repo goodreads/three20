@@ -15,6 +15,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 // Network
 #import "Three20Network/TTURLRequestCachePolicy.h"
@@ -36,7 +37,7 @@
  * TTURLRequestQueue's sendRequest.
  * For all other TTURLRequest types, they will each have their own loader.
  */
-@interface TTRequestLoader : NSObject
+@interface TTRequestLoader : NSObject<UIAlertViewDelegate>
 {
   NSString*               _urlPath;
 
