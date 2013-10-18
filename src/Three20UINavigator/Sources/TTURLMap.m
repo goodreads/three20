@@ -181,166 +181,259 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSString*)lowercaseSchemeURL:(NSString*)url {
+  NSRange rg = [url rangeOfString:@"://"];
+  if (rg.location != NSNotFound) {
+    NSString *scheme = [[url substringToIndex:rg.location] lowercaseString];
+    url = [NSString stringWithFormat:@"%@%@", scheme, [url substringFromIndex:rg.location]];
+  }
+
+  return url;
+}
+
+/*!
+ Given a http or https url, returns an array of urls with both schemes,
+ or a single item array if the url doesn't match http nor https.
+ */
+- (NSArray*)httpAndHttpsURLsFromURL:(NSString*)url {
+  url = [self lowercaseSchemeURL:url];
+  NSMutableArray *urls = [NSMutableArray arrayWithObject:url];
+
+  // is it an http or https url
+  const int httpLen = [@"http://" length];
+  const int httpsLen = [@"https://" length];
+  if ([url length] < httpLen) {
+    return urls;
+  }
+
+  if ([[url substringToIndex:httpLen] isEqualToString:@"http://"]) {
+    url = [url substringFromIndex:httpLen];
+    url = [NSString stringWithFormat:@"https://%@", url];
+    [urls addObject:url];
+  }
+
+  else if ([url length] >= httpsLen &&
+           [[url substringToIndex:httpsLen] isEqualToString:@"https://"]) {
+    url = [url substringFromIndex:httpsLen];
+    url = [NSString stringWithFormat:@"http://%@", url];
+    [urls addObject:url];
+  }
+
+  return urls;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toObject:(id)target {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target];
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target];
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toObject:(id)target selector:(SEL)selector {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target];
-  pattern.selector = selector;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target];
+    pattern.selector = selector;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toViewController:(id)target {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeCreate];
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                                    mode:TTNavigationModeCreate];
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toViewController:(id)target selector:(SEL)selector {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeCreate];
-  pattern.selector = selector;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                                    mode:TTNavigationModeCreate];
+    pattern.selector = selector;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toViewController:(id)target transition:(NSInteger)transition {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeCreate];
-  pattern.transition = transition;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                                    mode:TTNavigationModeCreate];
+    pattern.transition = transition;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL parent:(NSString*)parentURL
         toViewController:(id)target selector:(SEL)selector transition:(NSInteger)transition {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeCreate];
-  pattern.parentURL = parentURL;
-  pattern.selector = selector;
-  pattern.transition = transition;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                                    mode:TTNavigationModeCreate];
+    pattern.parentURL = parentURL;
+    pattern.selector = selector;
+    pattern.transition = transition;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toSharedViewController:(id)target {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeShare];
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                                    mode:TTNavigationModeShare];
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toSharedViewController:(id)target selector:(SEL)selector {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeShare];
-  pattern.selector = selector;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern;
+    pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target mode:TTNavigationModeShare];
+    pattern.selector = selector;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL parent:(NSString*)parentURL
         toSharedViewController:(id)target {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeShare];
-  pattern.parentURL = parentURL;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                                    mode:TTNavigationModeShare];
+    pattern.parentURL = parentURL;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL parent:(NSString*)parentURL
         toSharedViewController:(id)target selector:(SEL)selector {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeShare];
-  pattern.parentURL = parentURL;
-  pattern.selector = selector;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern;
+    pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                       mode:TTNavigationModeShare];
+    pattern.parentURL = parentURL;
+    pattern.selector = selector;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toModalViewController:(id)target {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeModal];
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                                    mode:TTNavigationModeModal];
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toModalViewController:(id)target selector:(SEL)selector {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeModal];
-  pattern.selector = selector;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern;
+    pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                       mode:TTNavigationModeModal];
+    pattern.selector = selector;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toModalViewController:(id)target transition:(NSInteger)transition {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeModal];
-  pattern.transition = transition;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                                    mode:TTNavigationModeModal];
+    pattern.transition = transition;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL parent:(NSString*)parentURL
         toModalViewController:(id)target selector:(SEL)selector transition:(NSInteger)transition {
-  TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                                                  mode:TTNavigationModeModal];
-  pattern.parentURL = parentURL;
-  pattern.selector = selector;
-  pattern.transition = transition;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern = [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                                                    mode:TTNavigationModeModal];
+    pattern.parentURL = parentURL;
+    pattern.selector = selector;
+    pattern.transition = transition;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toPopoverViewController:(id)target {
-  TTURLNavigatorPattern* pattern =
-    [[TTURLNavigatorPattern alloc] initWithTarget: target
-                                             mode: TTNavigationModePopover];
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern =
+      [[TTURLNavigatorPattern alloc] initWithTarget: target
+                                               mode: TTNavigationModePopover];
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)from:(NSString*)URL toPopoverViewController:(id)target selector:(SEL)selector {
-  TTURLNavigatorPattern* pattern =
-    [[TTURLNavigatorPattern alloc] initWithTarget:target
-                                             mode:TTNavigationModePopover];
-  pattern.selector = selector;
-  [self addObjectPattern:pattern forURL:URL];
-  [pattern release];
+  NSArray *urls = [self httpAndHttpsURLsFromURL:URL];
+  for (NSString *url in urls) {
+    TTURLNavigatorPattern* pattern =
+      [[TTURLNavigatorPattern alloc] initWithTarget:target
+                                               mode:TTNavigationModePopover];
+    pattern.selector = selector;
+    [self addObjectPattern:pattern forURL:url];
+    [pattern release];
+  }
 }
 
 
@@ -427,6 +520,8 @@
 - (id)objectForURL: (NSString*)URL
              query: (NSDictionary*)query
            pattern: (TTURLNavigatorPattern**)outPattern {
+  URL = [self lowercaseSchemeURL:URL];
+
   id object = nil;
   if (_objectMappings) {
     object = [_objectMappings objectForKey:URL];
