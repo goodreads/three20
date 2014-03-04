@@ -626,7 +626,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp ${BUILT_PRODUCTS_DIR}/*  ${BUILD_DIR}/";
+			shellScript = "cp ${BUILT_PRODUCTS_DIR}/libThree20*.a  ${BUILD_DIR}/";
 		};
 		EB9E6C6010B6A8F800DE563C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
