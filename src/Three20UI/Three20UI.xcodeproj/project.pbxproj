@@ -2328,45 +2328,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		6E92493F112C6F4000531F03 /* Internal */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E64543D1184BE1B00F08CB1 /* Project.xcconfig */;
-			buildSettings = {
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_LDFLAGS = "-ObjC";
-			};
-			name = Internal;
-		};
-		6E924940112C6F4000531F03 /* Internal */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				RUN_CLANG_STATIC_ANALYZER = YES;
-			};
-			name = Internal;
-		};
-		6E924941112C6F4000531F03 /* Internal */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EE7364C11849B3D00A35176 /* UnitTests.xcconfig */;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Internal;
-		};
 		BEF31F3B0F352DF6000DE5D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
@@ -2377,7 +2338,7 @@
 			};
 			name = Debug;
 		};
-		BEF31F3C0F352DF6000DE5D2 /* Release */ = {
+		BEF31F3C0F352DF6000DE5D2 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
 			buildSettings = {
@@ -2386,7 +2347,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				ZERO_LINK = NO;
 			};
-			name = Release;
+			name = Distribution;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2400,7 +2361,7 @@
 			};
 			name = Debug;
 		};
-		C01FCF5008A954540054247B /* Release */ = {
+		C01FCF5008A954540054247B /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E64543D1184BE1B00F08CB1 /* Project.xcconfig */;
 			buildSettings = {
@@ -2408,6 +2369,42 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
+			};
+			name = Distribution;
+		};
+		C9062E4518D117E90049B47F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E64543D1184BE1B00F08CB1 /* Project.xcconfig */;
+			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+			};
+			name = Release;
+		};
+		C9062E4618D117E90049B47F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C9062E4718D117E90049B47F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364C11849B3D00A35176 /* UnitTests.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -2425,7 +2422,7 @@
 			};
 			name = Debug;
 		};
-		EB9E6C6610B6A8F900DE563C /* Release */ = {
+		EB9E6C6610B6A8F900DE563C /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EE7364C11849B3D00A35176 /* UnitTests.xcconfig */;
 			buildSettings = {
@@ -2437,7 +2434,7 @@
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
-			name = Release;
+			name = Distribution;
 		};
 /* End XCBuildConfiguration section */
 
@@ -2446,8 +2443,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEF31F3B0F352DF6000DE5D2 /* Debug */,
-				6E924940112C6F4000531F03 /* Internal */,
-				BEF31F3C0F352DF6000DE5D2 /* Release */,
+				BEF31F3C0F352DF6000DE5D2 /* Distribution */,
+				C9062E4618D117E90049B47F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2456,8 +2453,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
-				6E92493F112C6F4000531F03 /* Internal */,
-				C01FCF5008A954540054247B /* Release */,
+				C01FCF5008A954540054247B /* Distribution */,
+				C9062E4518D117E90049B47F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2466,8 +2463,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB9E6C6510B6A8F900DE563C /* Debug */,
-				6E924941112C6F4000531F03 /* Internal */,
-				EB9E6C6610B6A8F900DE563C /* Release */,
+				EB9E6C6610B6A8F900DE563C /* Distribution */,
+				C9062E4718D117E90049B47F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
