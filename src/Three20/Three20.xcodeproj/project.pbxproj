@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DC5E6D518D8E21F00100475 /* Three20.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7F96FA118E363500443B46 /* Three20.m */; };
 		665A56D71265240E0032D0BE /* BasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 665A56D61265240E0032D0BE /* BasicTests.m */; };
 		6E6454741184D2CD00F08CB1 /* Three20.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6454731184D2CD00F08CB1 /* Three20.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6454931184D3ED00F08CB1 /* Three20+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E6454921184D3ED00F08CB1 /* Three20+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6454AA1184D43100F08CB1 /* libThree20Style.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6454A71184D42800F08CB1 /* libThree20Style.a */; };
-		6E7F96FB118E363500443B46 /* Three20.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7F96FA118E363500443B46 /* Three20.m */; };
 		6EDAEA1D118CA5E20008133C /* libThree20UICommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EDAEA09118CA5B50008133C /* libThree20UICommon.a */; };
 		6EDAEA1E118CA5E20008133C /* libThree20UINavigator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EDAEA12118CA5BE0008133C /* libThree20UINavigator.a */; };
 		6EE736C811849FAB00A35176 /* libThree20Core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE7366C11849C5800A35176 /* libThree20Core.a */; };
@@ -634,7 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E7F96FB118E363500443B46 /* Three20.m in Sources */,
+				1DC5E6D518D8E21F00100475 /* Three20.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +724,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(BASE_PRODUCT_NAME)";
 			};
 			name = Debug;
@@ -733,6 +734,7 @@
 			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(BASE_PRODUCT_NAME)";
 				ZERO_LINK = NO;
 			};
@@ -745,8 +747,6 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
 			};
 			name = Debug;
 		};
@@ -757,7 +757,6 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_LDFLAGS = "-ObjC";
 			};
 			name = Distribution;
 		};
@@ -768,7 +767,6 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_LDFLAGS = "-ObjC";
 			};
 			name = Release;
 		};
@@ -777,6 +775,7 @@
 			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(BASE_PRODUCT_NAME)";
 				ZERO_LINK = NO;
 			};

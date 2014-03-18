@@ -16,4 +16,6 @@
 
 #import "Three20/Three20.h"
 
-// Hello, world.
+// this dummy constant is required to suppress a linker warning about empty
+// symbols table when linking the libThree20 static lib into the app product.
+const char THREE20_DUMMY = 'a';
