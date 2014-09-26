@@ -17,14 +17,20 @@
 #import "Three20UINavigator/TTBaseNavigator.h"
 
 /**
- * Shortcut for calling [[TTNavigator navigator] openURL:]
+ * This function is no longer defined in Three20, in order to allow clients to
+ * use their own navigation mechanism while they move away from Three20.
+ * Simply define this function in the client code, using your own routing
+ * shortcut.
  */
-UIViewController* TTOpenURL(NSString* URL);
+extern UIViewController* TTOpenURL(NSString* URL);
 
 /**
- * Shortcut for calling [[TTBaseNavigator navigatorForView:view] openURL:]
+ * This function is no longer defined in Three20, in order to allow clients to
+ * use their own navigation mechanism while they move away from Three20.
+ * Simply define this function in the client code, using your own routing
+ * shortcut.
  */
-UIViewController* TTOpenURLFromView(NSString* URL, UIView* view);
+extern UIViewController* TTOpenURLFromView(NSString* URL, UIView* view);
 
 /**
  * A URL-based navigation system with built-in persistence.
