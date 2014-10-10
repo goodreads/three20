@@ -38,13 +38,21 @@ UIInterfaceOrientation TTInterfaceOrientation() {
 }
 
 
+// Quick and dirty fix since we have no plans to continue supporting three20
+// in the long term. This function is defined here:
+// https://github.com/ettore/candygirl/blob/master/clcg_device_utils.m
+extern BOOL clcg_os_geq(NSString *version);
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 CGRect TTScreenBounds() {
   CGRect bounds = [UIScreen mainScreen].bounds;
-  if (UIInterfaceOrientationIsLandscape(TTInterfaceOrientation())) {
-    CGFloat width = bounds.size.width;
-    bounds.size.width = bounds.size.height;
-    bounds.size.height = width;
+  if (! clcg_os_geq(@"8")) {
+    if (UIInterfaceOrientationIsLandscape(TTInterfaceOrientation())) {
+      CGFloat width = bounds.size.width;
+      bounds.size.width = bounds.size.height;
+      bounds.size.height = width;
+    }
   }
   return bounds;
 }
