@@ -139,12 +139,18 @@
 
         [_highlightedFrame release];
         _highlightedFrame = [frame retain];
+
+        [frame.element retain];
         [_highlightedNode release];
-        _highlightedNode = [frame.element retain];
+        _highlightedNode = frame.element;
+
         tableView.highlightedLabel = self;
 
       } else {
         TTStyle* style = [TTSTYLESHEET styleWithSelector:className forState:UIControlStateNormal];
+
+        //EP: weird crash here. Somehow _highlightedFrame has been dealloc'ed
+        // but the pointer has not been nil-ed out.
         [self setStyle:style forFrame:_highlightedFrame];
 
         TT_RELEASE_SAFELY(_highlightedFrame);
