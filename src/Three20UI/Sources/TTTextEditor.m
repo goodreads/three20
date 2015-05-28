@@ -275,6 +275,7 @@ static const CGFloat kUITextViewVerticalPadding = 6.0f;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)resignFirstResponder {
+  [super resignFirstResponder];
   return [[self activeTextField] resignFirstResponder];
 }
 

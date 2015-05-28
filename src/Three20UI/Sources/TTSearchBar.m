@@ -188,6 +188,7 @@ static const CGFloat kIndexViewMargin = 4.0f;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)resignFirstResponder {
+  [super resignFirstResponder];
   return [_searchField resignFirstResponder];
 }
 

@@ -201,7 +201,7 @@
 		6E6456B11184D4DA00F08CB1 /* TTSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456291184D4DA00F08CB1 /* TTSearchTextField.m */; };
 		6E6456B21184D4DA00F08CB1 /* TTSearchTextFieldInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64562A1184D4DA00F08CB1 /* TTSearchTextFieldInternal.m */; };
 		6E6456B31184D4DA00F08CB1 /* TTSectionedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64562B1184D4DA00F08CB1 /* TTSectionedDataSource.m */; };
-		6E6456B61184D4DA00F08CB1 /* TTStyledTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64562E1184D4DA00F08CB1 /* TTStyledTextLabel.m */; };
+		6E6456B61184D4DA00F08CB1 /* TTStyledTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64562E1184D4DA00F08CB1 /* TTStyledTextLabel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		6E6456B71184D4DA00F08CB1 /* TTStyledTextTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64562F1184D4DA00F08CB1 /* TTStyledTextTableCell.m */; };
 		6E6456B81184D4DA00F08CB1 /* TTStyledTextTableItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456301184D4DA00F08CB1 /* TTStyledTextTableItemCell.m */; };
 		6E6456B91184D4DA00F08CB1 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456311184D4DA00F08CB1 /* TTTab.m */; };
