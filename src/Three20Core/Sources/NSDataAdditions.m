@@ -21,6 +21,8 @@
 // Core
 #import "Three20Core/TTCorePreprocessorMacros.h"
 
+#import "TTDebug.h"
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,11 +34,11 @@ TT_FIX_CATEGORY_BUG(NSDataAdditions)
 
 @implementation NSData (TTCategory)
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)md5Hash {
   unsigned char result[CC_MD5_DIGEST_LENGTH];
-  CC_MD5([self bytes], [self length], result);
+  TTDASSERT([self length] <= UINT32_MAX);
+  CC_MD5([self bytes], (CC_LONG)[self length], result);
 
   return [NSString stringWithFormat:
     @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
@@ -49,7 +51,8 @@ TT_FIX_CATEGORY_BUG(NSDataAdditions)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)sha1Hash {
   unsigned char result[CC_SHA1_DIGEST_LENGTH];
-  CC_SHA1([self bytes], [self length], result);
+  TTDASSERT([self length] <= UINT32_MAX);
+  CC_SHA1([self bytes], (CC_LONG)[self length], result);
 
   return [NSString stringWithFormat:
     @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",

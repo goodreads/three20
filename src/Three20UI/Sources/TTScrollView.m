@@ -354,7 +354,7 @@ static const CGFloat kFrameDuration = 1.0/40.0f;
   }
 
   NSInteger indexDiff = pageIndex - baseIndex;
-  if (abs(indexDiff) > kOffscreenPages) {
+  if (((NSInteger)abs((int)indexDiff)) > kOffscreenPages) {
     return kInvalidIndex;
   }
 
@@ -501,18 +501,18 @@ static const CGFloat kFrameDuration = 1.0/40.0f;
 
   NSInteger indexDiff = pageIndex - _centerPageIndex;
   if (indexDiff) {
-    if (abs(indexDiff) <= kOffscreenPages) {
+    if ((NSInteger)abs((int)indexDiff) <= kOffscreenPages) {
       if (indexDiff > 0) {
         NSInteger edgeIndex = _centerPageIndex - kOffscreenPages;
         NSInteger newEdgeIndex = pageIndex - kOffscreenPages;
-        for (int i = edgeIndex; i < newEdgeIndex; ++i) {
+        for (NSInteger i = edgeIndex; i < newEdgeIndex; ++i) {
           [self enqueuePageAtIndex:i];
         }
 
       } else if (indexDiff < 0) {
         NSInteger edgeIndex = _centerPageIndex + kOffscreenPages;
         NSInteger newEdgeIndex = pageIndex + kOffscreenPages;
-        for (int i = edgeIndex; i > newEdgeIndex; --i) {
+        for (NSInteger i = edgeIndex; i > newEdgeIndex; --i) {
           [self enqueuePageAtIndex:i];
         }
       }
@@ -1687,14 +1687,14 @@ static const CGFloat kFrameDuration = 1.0/40.0f;
 
   UIView* centerPage = self.centerPage;
   if (centerPage) {
-    [visiblePages setObject:self.centerPage forKey:[NSNumber numberWithInt:_centerPageIndex]];
+    [visiblePages setObject:self.centerPage forKey:[NSNumber numberWithInteger:_centerPageIndex]];
   }
 
   NSInteger minPageIndex = _centerPageIndex - kOffscreenPages;
   for (NSInteger i = _centerPageIndex - 1; i >= 0 && i >= minPageIndex; --i) {
     UIView* page = [self pageAtIndex:i create:YES];
     if (page) {
-      [visiblePages setObject:page forKey:[NSNumber numberWithInt:i]];
+      [visiblePages setObject:page forKey:[NSNumber numberWithInteger:i]];
     }
   }
 
@@ -1703,7 +1703,7 @@ static const CGFloat kFrameDuration = 1.0/40.0f;
   for (NSInteger i = _centerPageIndex + 1; i < pageCount && i <= maxPageIndex; ++i) {
     UIView* page = [self pageAtIndex:i create:YES];
     if (page) {
-      [visiblePages setObject:page forKey:[NSNumber numberWithInt:i]];
+      [visiblePages setObject:page forKey:[NSNumber numberWithInteger:i]];
     }
   }
 

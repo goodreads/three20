@@ -590,10 +590,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E64541F1184BDF900F08CB1 /* Project.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				VALID_ARCHS = "i386 armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -601,9 +604,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E64541F1184BDF900F08CB1 /* Project.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				VALID_ARCHS = "i386 armv7 armv7s arm64";
 			};
 			name = Distribution;
 		};
@@ -611,9 +618,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E64541F1184BDF900F08CB1 /* Project.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				VALID_ARCHS = "i386 armv7 armv7s arm64";
 			};
 			name = Release;
 		};

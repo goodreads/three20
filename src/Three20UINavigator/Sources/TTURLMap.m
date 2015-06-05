@@ -200,8 +200,8 @@
   NSMutableArray *urls = [NSMutableArray arrayWithObject:url];
 
   // is it an http or https url
-  const int httpLen = [@"http://" length];
-  const int httpsLen = [@"https://" length];
+  const NSInteger httpLen = [@"http://" length];
+  const NSInteger httpsLen = [@"https://" length];
   if ([url length] < httpLen) {
     return urls;
   }

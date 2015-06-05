@@ -74,7 +74,7 @@ static const CGFloat kDefaultThumbSize = 75.0f;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)assignPhotoAtIndex:(int)photoIndex toView:(TTThumbView*)thumbView {
+- (void)assignPhotoAtIndex:(NSInteger)photoIndex toView:(TTThumbView*)thumbView {
   id<TTPhoto> photo = [_photo.photoSource photoWithIndex:photoIndex];
   if (photo) {
     thumbView.thumbURL = [photo URLForVersion:TTPhotoVersionThumbnail];
