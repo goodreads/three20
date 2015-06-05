@@ -20,6 +20,7 @@
 #import "Three20UI/TTPhotoSource.h"
 #import "Three20UI/TTTableMoreButton.h"
 #import "Three20UI/TTThumbsTableViewCell.h"
+#import "Three20UI/TTPhoto.h"
 
 // UINavigator
 #import "Three20UINavigator/TTGlobalNavigatorMetrics.h"

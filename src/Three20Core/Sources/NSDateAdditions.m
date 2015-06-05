@@ -89,7 +89,7 @@ TT_FIX_CATEGORY_BUG(NSDateAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)formatShortTime {
-  NSTimeInterval diff = abs([self timeIntervalSinceNow]);
+  NSTimeInterval diff = fabs([self timeIntervalSinceNow]);
 
   if (diff < TT_DAY) {
     return [self formatTime];
@@ -117,7 +117,7 @@ TT_FIX_CATEGORY_BUG(NSDateAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)formatDateTime {
-  NSTimeInterval diff = abs([self timeIntervalSinceNow]);
+  NSTimeInterval diff = fabs([self timeIntervalSinceNow]);
   if (diff < TT_DAY) {
     return [self formatTime];
 
@@ -205,7 +205,7 @@ TT_FIX_CATEGORY_BUG(NSDateAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)formatShortRelativeTime {
-  NSTimeInterval elapsed = abs([self timeIntervalSinceNow]);
+  NSTimeInterval elapsed = fabs([self timeIntervalSinceNow]);
 
   if (elapsed < TT_MINUTE) {
     return TTLocalizedString(@"<1m", @"Date format: less than one minute ago");
