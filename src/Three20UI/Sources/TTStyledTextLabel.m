@@ -62,8 +62,8 @@
     _textAlignment  = UITextAlignmentLeft;
     _contentInset   = UIEdgeInsetsZero;
 
-    self.font = TTSTYLEVAR(font);
-    self.backgroundColor = TTSTYLEVAR(backgroundColor);
+    self.font = (UIFont*) TTSTYLEVAR(font);
+    self.backgroundColor = (UIColor*) TTSTYLEVAR(backgroundColor);
     self.contentMode = UIViewContentModeRedraw;
     [self setIsAccessibilityElement:YES];
   }
