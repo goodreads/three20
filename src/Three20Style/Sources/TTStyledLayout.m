@@ -385,9 +385,9 @@
   }
 
   // Horizontally align all frames on current line if required
-  if (_textAlignment != UITextAlignmentLeft) {
+  if (_textAlignment != NSTextAlignmentLeft) {
     CGFloat remainingSpace = _width - _lineWidth;
-    CGFloat offset = _textAlignment == UITextAlignmentCenter ? remainingSpace/2 : remainingSpace;
+    CGFloat offset = _textAlignment == NSTextAlignmentCenter ? remainingSpace/2 : remainingSpace;
 
     TTStyledFrame* frame = _lineFirstFrame;
     while (frame) {

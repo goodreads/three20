@@ -103,7 +103,7 @@
     _lastUpdatedLabel.shadowColor     = TTSTYLEVAR(tableRefreshHeaderTextShadowColor);
     _lastUpdatedLabel.shadowOffset    = TTSTYLEVAR(tableRefreshHeaderTextShadowOffset);
     _lastUpdatedLabel.backgroundColor = [UIColor clearColor];
-    _lastUpdatedLabel.textAlignment   = UITextAlignmentCenter;
+    _lastUpdatedLabel.textAlignment   = NSTextAlignmentCenter;
     [self addSubview:_lastUpdatedLabel];
 
     _statusLabel = [[UILabel alloc]
@@ -116,7 +116,7 @@
     _statusLabel.shadowColor      = TTSTYLEVAR(tableRefreshHeaderTextShadowColor);
     _statusLabel.shadowOffset     = TTSTYLEVAR(tableRefreshHeaderTextShadowOffset);
     _statusLabel.backgroundColor  = [UIColor clearColor];
-    _statusLabel.textAlignment    = UITextAlignmentCenter;
+    _statusLabel.textAlignment    = NSTextAlignmentCenter;
     [self setStatus:TTTableHeaderDragRefreshPullToReload];
     [self addSubview:_statusLabel];
 

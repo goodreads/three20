@@ -59,7 +59,7 @@
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
   if (self) {
-    _textAlignment  = UITextAlignmentLeft;
+    _textAlignment  = NSTextAlignmentLeft;
     _contentInset   = UIEdgeInsetsZero;
 
     self.font = (UIFont*) TTSTYLEVAR(font);
@@ -476,7 +476,7 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setTextAlignment:(UITextAlignment)textAlignment {
+- (void)setTextAlignment:(NSTextAlignment)textAlignment {
   if (textAlignment != _textAlignment) {
     _textAlignment = textAlignment;
     _text.textAlignment = _textAlignment;

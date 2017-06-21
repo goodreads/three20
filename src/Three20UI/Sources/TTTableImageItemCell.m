@@ -235,11 +235,11 @@ static const CGFloat kDefaultImageSize = 50.0f;
     self.textLabel.font = [[self class] fontForImageItem:item];
 
     if ([_item isKindOfClass:[TTTableRightImageItem class]]) {
-      self.textLabel.textAlignment = UITextAlignmentCenter;
+      self.textLabel.textAlignment = NSTextAlignmentCenter;
       self.accessoryType = UITableViewCellAccessoryNone;
 
     } else {
-      self.textLabel.textAlignment = UITextAlignmentLeft;
+      self.textLabel.textAlignment = NSTextAlignmentLeft;
     }
   }
 }

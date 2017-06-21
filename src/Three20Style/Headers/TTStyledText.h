@@ -28,7 +28,7 @@
   TTStyledNode*   _rootNode;
   TTStyledFrame*  _rootFrame;
   UIFont*         _font;
-  UITextAlignment _textAlignment;
+  NSTextAlignment _textAlignment;
   CGFloat         _width;
   CGFloat         _height;
   NSMutableArray* _invalidImages;
@@ -57,7 +57,7 @@
 /**
  * The text alignment used for all text.
  */
-@property (nonatomic) UITextAlignment textAlignment;
+@property (nonatomic) NSTextAlignment textAlignment;
 
 /**
  * The width that the text should be constrained to fit within.

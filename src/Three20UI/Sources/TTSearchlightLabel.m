@@ -44,7 +44,7 @@
     self.font = TTSTYLEVAR(font);
     self.textColor = [UIColor colorWithWhite:0.25 alpha:1];
     self.spotlightColor = [UIColor whiteColor];
-    self.textAlignment = UITextAlignmentLeft;
+    self.textAlignment = NSTextAlignmentLeft;
     self.backgroundColor = [UIColor clearColor];
     self.contentMode = UIViewContentModeCenter;
   }
@@ -134,10 +134,10 @@
   CGSize textSize = [self sizeThatFits:CGSizeZero];
 
   CGFloat x = 0.0f;
-  if (_textAlignment == UITextAlignmentRight) {
+  if (_textAlignment == NSTextAlignmentRight) {
     x = self.frame.size.width - textSize.width;
 
-  } else if (_textAlignment == UITextAlignmentCenter) {
+  } else if (_textAlignment == NSTextAlignmentCenter) {
     x = ceil(self.frame.size.width/2 - textSize.width/2);
   }
 

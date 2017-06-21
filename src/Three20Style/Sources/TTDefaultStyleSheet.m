@@ -571,7 +571,7 @@
                minimumFontSize: 0
                    shadowColor: TTSTYLEVAR(photoCaptionTextShadowColor)
                   shadowOffset: TTSTYLEVAR(photoCaptionTextShadowOffset)
-                 textAlignment: UITextAlignmentCenter
+                 textAlignment: NSTextAlignmentCenter
              verticalAlignment: UIControlContentVerticalAlignmentCenter
                  lineBreakMode: UILineBreakModeTailTruncation
                  numberOfLines: 6
