@@ -197,7 +197,6 @@
 		6E6456AD1184D4DA00F08CB1 /* TTScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456251184D4DA00F08CB1 /* TTScrollView.m */; };
 		6E6456AE1184D4DA00F08CB1 /* TTSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456261184D4DA00F08CB1 /* TTSearchBar.m */; };
 		6E6456AF1184D4DA00F08CB1 /* TTSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456271184D4DA00F08CB1 /* TTSearchDisplayController.m */; };
-		6E6456B01184D4DA00F08CB1 /* TTSearchlightLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456281184D4DA00F08CB1 /* TTSearchlightLabel.m */; };
 		6E6456B11184D4DA00F08CB1 /* TTSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6456291184D4DA00F08CB1 /* TTSearchTextField.m */; };
 		6E6456B21184D4DA00F08CB1 /* TTSearchTextFieldInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64562A1184D4DA00F08CB1 /* TTSearchTextFieldInternal.m */; };
 		6E6456B31184D4DA00F08CB1 /* TTSectionedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64562B1184D4DA00F08CB1 /* TTSectionedDataSource.m */; };
@@ -2166,7 +2165,6 @@
 				6E6456AD1184D4DA00F08CB1 /* TTScrollView.m in Sources */,
 				6E6456AE1184D4DA00F08CB1 /* TTSearchBar.m in Sources */,
 				6E6456AF1184D4DA00F08CB1 /* TTSearchDisplayController.m in Sources */,
-				6E6456B01184D4DA00F08CB1 /* TTSearchlightLabel.m in Sources */,
 				6E6456B11184D4DA00F08CB1 /* TTSearchTextField.m in Sources */,
 				6E6456B21184D4DA00F08CB1 /* TTSearchTextFieldInternal.m in Sources */,
 				6E6456B31184D4DA00F08CB1 /* TTSectionedDataSource.m in Sources */,
