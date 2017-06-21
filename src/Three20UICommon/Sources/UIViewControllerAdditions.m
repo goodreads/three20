@@ -323,7 +323,8 @@ TT_FIX_CATEGORY_BUG(UIViewControllerAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)dismissModalViewController {
-  [self dismissModalViewControllerAnimated:YES];
+  [self dismissViewControllerAnimated:YES
+                           completion:nil];
 }
 
 
