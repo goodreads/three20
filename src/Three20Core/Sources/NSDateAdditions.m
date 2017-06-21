@@ -52,9 +52,10 @@ TT_FIX_CATEGORY_BUG(NSDateAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSDate*)dateAtMidnight {
-	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSCalendar *gregorian = [[NSCalendar alloc]
+                           initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 	NSDateComponents *comps = [gregorian components:
-                               (NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit)
+                               (NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay)
                                            fromDate:[NSDate date]];
 	NSDate *midnight = [gregorian dateFromComponents:comps];
 	[gregorian release];
@@ -238,7 +239,7 @@ TT_FIX_CATEGORY_BUG(NSDateAdditions)
   }
 
   NSCalendar* cal = [NSCalendar currentCalendar];
-  NSDateComponents* day = [cal components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
+  NSDateComponents* day = [cal components:NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear
                                fromDate:self];
 
   if (day.day == today.day && day.month == today.month && day.year == today.year) {
