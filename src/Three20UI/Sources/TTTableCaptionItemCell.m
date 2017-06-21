@@ -45,7 +45,7 @@ static const CGFloat kKeyWidth = 75.0f;
     self.textLabel.highlightedTextColor = TTSTYLEVAR(highlightedTextColor);
 	self.textLabel.backgroundColor = TTSTYLEVAR(backgroundTextColor);
     self.textLabel.textAlignment = NSTextAlignmentRight;
-    self.textLabel.lineBreakMode = UILineBreakModeTailTruncation;
+    self.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     self.textLabel.numberOfLines = 1;
     self.textLabel.adjustsFontSizeToFitWidth = YES;
 
@@ -55,7 +55,7 @@ static const CGFloat kKeyWidth = 75.0f;
 	self.detailTextLabel.backgroundColor = TTSTYLEVAR(backgroundTextColor);
     self.detailTextLabel.adjustsFontSizeToFitWidth = YES;
     self.detailTextLabel.minimumFontSize = 8;
-    self.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.detailTextLabel.numberOfLines = 0;
   }
 
@@ -78,11 +78,11 @@ static const CGFloat kKeyWidth = 75.0f;
 
   CGSize detailTextSize = [item.text sizeWithFont:TTSTYLEVAR(tableSmallFont)
                                 constrainedToSize:CGSizeMake(width, CGFLOAT_MAX)
-                                    lineBreakMode:UILineBreakModeWordWrap];
+                                    lineBreakMode:NSLineBreakByWordWrapping];
 
   CGSize captionTextSize = [item.caption sizeWithFont:TTSTYLEVAR(tableTitleFont)
                                 constrainedToSize:CGSizeMake(kKeyWidth, CGFLOAT_MAX)
-                                    lineBreakMode:UILineBreakModeTailTruncation];
+                                    lineBreakMode:NSLineBreakByTruncatingTail];
 
   return MAX(detailTextSize.height, captionTextSize.height) + kTableCellVPadding*2;
 }

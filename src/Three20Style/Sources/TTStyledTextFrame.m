@@ -59,7 +59,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)drawInRect:(CGRect)rect {
-  [_text drawInRect:rect withFont:_font lineBreakMode:UILineBreakModeTailTruncation];
+  [_text drawInRect:rect withFont:_font lineBreakMode:NSLineBreakByTruncatingTail];
 }
 
 

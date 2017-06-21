@@ -39,7 +39,7 @@
   if (self) {
     self.textLabel.highlightedTextColor = TTSTYLEVAR(highlightedTextColor);
 	self.textLabel.backgroundColor = TTSTYLEVAR(backgroundTextColor);
-    self.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.textLabel.numberOfLines = 0;
 
     self.detailTextLabel.highlightedTextColor = TTSTYLEVAR(highlightedTextColor);

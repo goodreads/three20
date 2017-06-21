@@ -117,7 +117,7 @@ static const CGFloat kDefaultImageSize = 50.0f;
 
   CGSize textSize = [imageItem.text sizeWithFont:[self fontForImageItem:imageItem]
                                constrainedToSize:CGSizeMake(maxWidth, CGFLOAT_MAX)
-                                   lineBreakMode:UILineBreakModeTailTruncation];
+                                   lineBreakMode:NSLineBreakByTruncatingTail];
 
   CGFloat contentHeight = textSize.height > imageHeight ? textSize.height : imageHeight;
   return contentHeight + kTableCellVPadding*2;

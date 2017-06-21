@@ -45,7 +45,7 @@ static const CGFloat kMaxWidth = 250.0f;
     _labelView.backgroundColor = [UIColor clearColor];
     _labelView.textColor = TTSTYLEVAR(textColor);
     _labelView.highlightedTextColor = TTSTYLEVAR(highlightedTextColor);
-    _labelView.lineBreakMode = UILineBreakModeTailTruncation;
+    _labelView.lineBreakMode = NSLineBreakByTruncatingTail;
     [self addSubview:_labelView];
 
     self.backgroundColor = [UIColor clearColor];
