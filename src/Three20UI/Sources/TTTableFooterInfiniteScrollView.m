@@ -53,6 +53,13 @@
   return self;
 }
 
+-(void)dealloc
+{
+  [_indicator release];
+  _indicator = nil;
+  [super dealloc];
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)drawRect:(CGRect)rect{

@@ -112,7 +112,6 @@ static const UILineBreakMode kLineBreakMode = NSLineBreakByWordWrapping;
       subview.hidden = NO;
     }
   }
-  
   self.textLabel.frame = CGRectInset(self.contentView.bounds,
                                      kTableCellHPadding, kTableCellVPadding);
 }

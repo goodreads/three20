@@ -127,6 +127,8 @@ static const NSInteger kDefaultColumnCount = 3;
   TT_RELEASE_SAFELY(_buttons);
   TT_RELEASE_SAFELY(_scrollView);
   TT_RELEASE_SAFELY(_pager);
+  TT_RELEASE_SAFELY(_persistenceKey);
+  TT_RELEASE_SAFELY(_prompt);
 
   [super dealloc];
 }
