@@ -137,7 +137,7 @@
     TTPickerTextField* textField = [field createViewForController:self];
     if (textField) {
       textField.delegate = self;
-      textField.backgroundColor = TTSTYLEVAR(backgroundColor);
+      textField.backgroundColor = (UIColor*)TTSTYLEVAR(backgroundColor);
       textField.font = TTSTYLEVAR(messageFont);
       textField.returnKeyType = UIReturnKeyNext;
       textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -147,7 +147,7 @@
       label.text = field.title;
       label.font = TTSTYLEVAR(messageFont);
       label.textColor = TTSTYLEVAR(messageFieldTextColor);
-      label.backgroundColor = TTSTYLEVAR(backgroundColor);
+      label.backgroundColor = (UIColor*)TTSTYLEVAR(backgroundColor);
       [label sizeToFit];
       label.frame = CGRectInset(label.frame, -2, 0);
       textField.leftView = label;
@@ -309,10 +309,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)loadView {
   [super loadView];
-  self.view.backgroundColor = TTSTYLEVAR(backgroundColor);
+  self.view.backgroundColor = (UIColor*)TTSTYLEVAR(backgroundColor);
 
   _scrollView = [[[UIScrollView class] alloc] initWithFrame:TTKeyboardNavigationFrame()];
-  _scrollView.backgroundColor = TTSTYLEVAR(backgroundColor);
+  _scrollView.backgroundColor = (UIColor*)TTSTYLEVAR(backgroundColor);
   _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
   _scrollView.canCancelContentTouches = NO;
   _scrollView.showsVerticalScrollIndicator = NO;
@@ -321,7 +321,7 @@
 
   _textEditor = [[TTTextEditor alloc] initWithFrame:CGRectMake(0, 0, _scrollView.width, 0)];
   _textEditor.delegate = self;
-  _textEditor.backgroundColor = TTSTYLEVAR(backgroundColor);
+  _textEditor.backgroundColor = (UIColor*)TTSTYLEVAR(backgroundColor);
   _textEditor.font = TTSTYLEVAR(messageFont);
   _textEditor.autoresizingMask = UIViewAutoresizingFlexibleWidth;
   _textEditor.autoresizesToText = YES;

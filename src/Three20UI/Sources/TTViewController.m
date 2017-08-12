@@ -93,7 +93,7 @@
     self.view = [[[UIView alloc] initWithFrame:frame] autorelease];
     self.view.autoresizesSubviews = YES;
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.view.backgroundColor = TTSTYLEVAR(backgroundColor);
+    self.view.backgroundColor = (UIColor*)TTSTYLEVAR(backgroundColor);
   }
 }
 

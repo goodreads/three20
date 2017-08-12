@@ -142,7 +142,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIFont*)font {
   if (!_font) {
-    _font = [TTSTYLEVAR(font) retain];
+    _font = [(id)TTSTYLEVAR(font) retain];
   }
   return _font;
 }

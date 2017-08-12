@@ -186,7 +186,7 @@
     [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithRadius:TT_ROUNDED] next:
     [TTInsetStyle styleWithInset:UIEdgeInsetsMake(1, 0, 1, 0) next:
     [TTShadowStyle styleWithColor:RGBACOLOR(255,255,255,0.4) blur:0 offset:CGSizeMake(0, 1) next:
-    [TTSolidFillStyle styleWithColor:TTSTYLEVAR(backgroundColor) next:
+    [TTSolidFillStyle styleWithColor:((UIColor*)TTSTYLEVAR(backgroundColor)) next:
     [TTInnerShadowStyle styleWithColor:RGBACOLOR(0,0,0,0.4) blur:3 offset:CGSizeMake(0, 2) next:
     [TTBevelBorderStyle styleWithHighlight:RGBACOLOR(0,0,0,0.25) shadow:RGBACOLOR(0,0,0,0.4)
                         width:1 lightSource:270 next:nil]]]]]];
@@ -691,7 +691,7 @@
     [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithRadius:12.5] next:
     [TTInsetStyle styleWithInset:UIEdgeInsetsMake(1, 0, 1, 0) next:
     [TTShadowStyle styleWithColor:RGBACOLOR(255,255,255,0.4) blur:0 offset:CGSizeMake(0, 1) next:
-    [TTSolidFillStyle styleWithColor:TTSTYLEVAR(backgroundColor) next:
+     [TTSolidFillStyle styleWithColor:(UIColor*)TTSTYLEVAR(backgroundColor) next:
     [TTInnerShadowStyle styleWithColor:RGBACOLOR(0,0,0,0.4) blur:3 offset:CGSizeMake(0, 2) next:
     [TTBevelBorderStyle styleWithHighlight:RGBACOLOR(0,0,0,0.25) shadow:RGBACOLOR(0,0,0,0.4)
                         width:1 lightSource:270 next:nil]]]]]]];
