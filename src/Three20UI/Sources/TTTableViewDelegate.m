@@ -120,6 +120,7 @@ static const NSUInteger kFirstTableSection = 0;
   return nil;
 }
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section {
   if ([tableView.dataSource respondsToSelector:@selector(tableView:titleForHeaderInSection:)]) {

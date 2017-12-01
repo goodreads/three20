@@ -1083,6 +1083,55 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		10BCC7EA1F85B0C400FAB8AD /* DebugDev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E64543D1184BE1B00F08CB1 /* Project.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				VALID_ARCHS = "i386 armv7 armv7s arm64";
+			};
+			name = DebugDev;
+		};
+		10BCC7EB1F85B0C400FAB8AD /* DebugDev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				OTHER_LDFLAGS = "";
+			};
+			name = DebugDev;
+		};
+		10BCC7EC1F85B0C400FAB8AD /* DebugDev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE7364C11849B3D00A35176 /* UnitTests.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.facebook.three20.UnitTests;
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = DebugDev;
+		};
 		BEF31F3B0F352DF6000DE5D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EE7364B11849B3D00A35176 /* Library.xcconfig */;
@@ -1233,6 +1282,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEF31F3B0F352DF6000DE5D2 /* Debug */,
+				10BCC7EB1F85B0C400FAB8AD /* DebugDev */,
 				BEF31F3C0F352DF6000DE5D2 /* Distribution */,
 				C9062E3B18D117B20049B47F /* Release */,
 			);
@@ -1243,6 +1293,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
+				10BCC7EA1F85B0C400FAB8AD /* DebugDev */,
 				C01FCF5008A954540054247B /* Distribution */,
 				C9062E3A18D117B20049B47F /* Release */,
 			);
@@ -1253,6 +1304,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB9E6C6510B6A8F900DE563C /* Debug */,
+				10BCC7EC1F85B0C400FAB8AD /* DebugDev */,
 				EB9E6C6610B6A8F900DE563C /* Distribution */,
 				C9062E3C18D117B20049B47F /* Release */,
 			);
