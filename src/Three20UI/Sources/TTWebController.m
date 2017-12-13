@@ -128,31 +128,6 @@
 }
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)shareAction {
-  if (nil != _actionSheet && [_actionSheet isVisible]) {
-    //should only happen on the iPad
-    assert(TTIsPad());
-    [_actionSheet dismissWithClickedButtonIndex:-1 animated:YES];
-    return;
-  }
-
-  if (nil == _actionSheet) {
-    _actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                               delegate:self
-                                      cancelButtonTitle:TTLocalizedString(@"Cancel", @"")
-                                 destructiveButtonTitle:nil
-                                      otherButtonTitles:TTLocalizedString(@"Open in Safari", @""),
-                                                        nil];
-    if (TTIsPad()) {
-      [_actionSheet showFromBarButtonItem:_actionButton animated:YES];
-
-    }  else {
-      [_actionSheet showInView: self.view];
-    }
-  }
-}
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)updateToolbarWithOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -206,8 +181,6 @@
   _stopButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:
                  UIBarButtonSystemItemStop target:self action:@selector(stopAction)];
   _stopButton.tag = 3;
-  _actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:
-                   UIBarButtonSystemItemAction target:self action:@selector(shareAction)];
 
   UIBarItem* space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:
                        UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
@@ -225,7 +198,6 @@
                     space,
                     _refreshButton,
                     space,
-                    _actionButton,
                     nil];
   [self.view addSubview:_toolbar];
 }
@@ -244,7 +216,6 @@
   TT_RELEASE_SAFELY(_forwardButton);
   TT_RELEASE_SAFELY(_refreshButton);
   TT_RELEASE_SAFELY(_stopButton);
-  TT_RELEASE_SAFELY(_actionButton);
   TT_RELEASE_SAFELY(_activityItem);
 }
 
