@@ -1,5 +1,5 @@
 
-Three20 Core
+Three20 Core 
 ============
 
 A set of utilities to improve the most basic aspects of Objective-C development. Included
