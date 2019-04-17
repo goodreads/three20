@@ -527,9 +527,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
-				VALID_ARCHS = "i386 armv7 armv7s arm64";
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = DebugDev;
 		};
@@ -542,6 +542,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				OTHER_LDFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(HEADERS_FOLDER_PATH)$(BASE_PRODUCT_NAME)";
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = DebugDev;
 		};
@@ -570,6 +571,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				OTHER_LDFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(HEADERS_FOLDER_PATH)$(BASE_PRODUCT_NAME)";
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = Debug;
 		};
@@ -577,9 +579,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E55A4B31183CA80002768DE /* Library.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_CODE_COVERAGE = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				OTHER_LDFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(HEADERS_FOLDER_PATH)$(BASE_PRODUCT_NAME)";
+				VALID_ARCHS = "x86_64 arm64";
 				ZERO_LINK = NO;
 			};
 			name = Distribution;
@@ -594,9 +598,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
-				VALID_ARCHS = "i386 armv7 armv7s arm64";
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = Debug;
 		};
@@ -606,12 +610,13 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_CODE_COVERAGE = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
-				VALID_ARCHS = "i386 armv7 armv7s arm64";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = Distribution;
 		};
@@ -621,12 +626,13 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_CODE_COVERAGE = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
-				VALID_ARCHS = "i386 armv7 armv7s arm64";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				VALID_ARCHS = "x86_64 arm64";
 			};
 			name = Release;
 		};
@@ -634,9 +640,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E55A4B31183CA80002768DE /* Library.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_CODE_COVERAGE = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				OTHER_LDFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(HEADERS_FOLDER_PATH)$(BASE_PRODUCT_NAME)";
+				VALID_ARCHS = "x86_64 arm64";
 				ZERO_LINK = NO;
 			};
 			name = Release;
